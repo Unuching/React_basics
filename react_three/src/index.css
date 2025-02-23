@@ -67,6 +67,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .react_logo {
   display: flex;
   align-items: flex-start;
