@@ -67,9 +67,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.reactLogo {
-  width: 60px;
-  align-content: start;
+.react_logo {
+  display: flex;
+  align-items: flex-start;
 }
 .myLists {
   justify-items: left;
@@ -78,4 +78,14 @@ button:focus-visible {
 
 .reactName {
   color: #535bf2;
+}
+.nav_bar {
+  list-style: none;
+  display: flex;
+
+  gap: 20px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  justify-content: flex-end;
 }
