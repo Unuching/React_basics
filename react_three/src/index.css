@@ -26,6 +26,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
 }
@@ -67,5 +68,14 @@ button:focus-visible {
   }
 }
 .reactLogo {
-  width: 40px;
+  width: 60px;
+  align-content: start;
+}
+.myLists {
+  justify-items: left;
+  font-size: larger;
+}
+
+.reactName {
+  color: #535bf2;
 }
