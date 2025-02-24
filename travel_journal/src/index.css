@@ -1,0 +1,12 @@
+* {
+  background-color: grey;
+  margin: 0;
+  border: 0;
+}
+.my_header {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 30px;
+  color: antiquewhite;
+}
