@@ -1,0 +1,17 @@
+* {
+  background-color: grey;
+ 
+}
+.my_react_logo {
+  width: 70px;
+}
+.my_header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.my_content {
+  background-image: url(/src/react_logo.png);
+  background-size: cover;
+}
