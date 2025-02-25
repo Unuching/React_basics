@@ -1,12 +1,20 @@
 * {
-  background-color: grey;
   margin: 0;
   border: 0;
 }
 .my_header {
+  background: #f55a5a;
   display: flex;
+  justify-content: center;
   align-items: center;
-  column-gap: 20px;
-  padding: 30px;
-  color: antiquewhite;
+  color: white;
+  height: 65px;
+}
+header > img {
+  width: 30px;
+  margin-right: 10px;
+}
+header > h1 {
+  font-family: inter;
+  font-weight: 500;
 }
