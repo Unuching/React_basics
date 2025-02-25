@@ -1,6 +1,7 @@
 * {
   margin: 0;
   border: 0;
+  font-family: inter;
 }
 .my_header {
   background: #f55a5a;
@@ -17,4 +18,26 @@ header > img {
 header > h1 {
   font-family: inter;
   font-weight: 500;
+}
+.entry {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.main_image_container {
+  width: 125px;
+  height: 168px;
+  overflow: hidden;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.main_image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.second_div{
+display: grid;
 }
