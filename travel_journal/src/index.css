@@ -22,8 +22,10 @@ header > h1 {
 .entry {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   padding: 20px;
+  max-width: 500px;
 }
 .main_image_container {
   width: 125px;
@@ -38,6 +40,9 @@ header > h1 {
   width: 100%;
   object-fit: cover;
 }
-.second_div{
-display: grid;
+.second_div {
+  display: grid;
+}
+.my_dates {
+  font-weight: 800;
 }
