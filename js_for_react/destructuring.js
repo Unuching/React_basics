@@ -5,5 +5,5 @@ const peoples = [
   { id: "b2", description: "A office helper" },
 ];
 
-const [a, b] = peoples;
-console.log(b);
+const [a, b, ...c] = peoples;
+console.log(c);
