@@ -3,7 +3,7 @@ import Joke from "./jokes.jsx";
 export default function App() {
   return (
     <>
-      <Joke setup="A car" punchline="is running" />
+      <Joke  punchline="is running" />
       <Joke setup="A woman " punchline="is silent" />
       <Joke setup="A baby" punchline=" is marrying" />
       <Joke setup="A father" punchline="is complaining" />
