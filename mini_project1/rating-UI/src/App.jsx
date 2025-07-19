@@ -1,9 +1,17 @@
-import Rating from "./components/rating";
+import Rating from './components/rating';
 
 const App = () => {
   return (
     <div>
-      <Rating />
+      <Rating
+        feedBackMessages={[
+          'Hate it',
+          'Dislike it',
+          'Meh',
+          'Like it',
+          'Love it',
+        ]}
+      />
     </div>
   );
 };
