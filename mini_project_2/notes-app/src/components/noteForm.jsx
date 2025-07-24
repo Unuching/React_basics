@@ -59,7 +59,7 @@ const NoteForm = ({ notes, setNotes }) => {
             value={formData.priority}
             onChange={handleChange}
             options={[
-              { value: ' High', label: '🔴 High' },
+              { value: 'High', label: '🔴 High' },
               { value: 'Medium', label: '🌕 Medium' },
               { value: 'Low', label: '🔵 Low' },
             ]}
@@ -70,7 +70,7 @@ const NoteForm = ({ notes, setNotes }) => {
             value={formData.category}
             onChange={handleChange}
             options={[
-              { value: ' Work', label: '💼 Work' },
+              { value: 'Work', label: '💼 Work' },
               { value: 'Personal', label: '💻 Personal' },
               { value: 'Ideas', label: '💭 Ideas' },
             ]}
