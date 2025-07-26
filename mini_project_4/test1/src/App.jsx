@@ -13,7 +13,7 @@ function App() {
       >
         {showLogger ? 'Unmount Logger' : 'Mount Logger'}
       </button>
-      {showLogger && <LifecycleLogger />}
+      {showLogger && <LifecycleLogger message='Hello my prop' />}
     </div>
   );
 }
