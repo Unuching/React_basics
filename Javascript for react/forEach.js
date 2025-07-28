@@ -4,4 +4,4 @@ let myPeople = [
   { name: 'Rikon Chakma', title: 'Assistant', age: 20, ispresent: false },
 ];
 
-myPeople.forEach((member) => console.log(member.name));
+myPeople.forEach((member) => console.log(member.title));
