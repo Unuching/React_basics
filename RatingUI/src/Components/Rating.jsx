@@ -8,10 +8,20 @@ const Rating = ({
 }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
   // learn array from
+  const handleSubmit = () => {
+    if (rating > 0) {
+      setSubmitted(true);
+    }
+  };
+  const closeModal = () => {
+    setSubmitted(false);
+    setRating(0);
+  };
 
   return (
     <div className='rating-container'>
@@ -29,21 +39,29 @@ const Rating = ({
             hoverEnter={setHover}
             hoverLeave={() => setHover(null)}
           />
-          // <span
-          //   onClick={() => setRating(star)}
-          //   onMouseEnter={() => setHover(star)}
-          //   onMouseLeave={() => setHover(0)}
-          //   key={star}
-          //   className='star'
-          //   style={{
-          //     color: star <= (hover || rating) ? color : '#ccc',
-          //   }}
-          // >
-          //   {'\u2605'}
-          // </span>
         ))}
       </div>
       {rating > 0 && <p className='feedback'>{feedbacks[rating - 1]}</p>}
+      <button
+        className='submit-btn'
+        onClick={handleSubmit}
+        disabled={rating === 0}
+      >
+        Submit
+      </button>
+      {submitted && (
+        <div className='modal-overlay'>
+          <div className='modal'>
+            <h2>Thank You</h2>
+            <p>
+              You rated us {rating} star{rating > 1 ? 's' : ''}
+            </p>
+            <button className='close-btn' onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
