@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Star from './Star';
+import Modal from './modal';
+import Button from './button';
 
 const Rating = ({
   heading = 'Rate Your Experience',
@@ -21,12 +23,12 @@ const Rating = ({
   const closeModal = () => {
     setSubmitted(false);
     setRating(0);
+    setHover(0);
   };
 
   return (
     <div className='rating-container'>
       <h2>{heading}</h2>
-
       <div className='stars'>
         {stars.map((star) => (
           <Star
@@ -42,26 +44,21 @@ const Rating = ({
         ))}
       </div>
       {rating > 0 && <p className='feedback'>{feedbacks[rating - 1]}</p>}
-      <button
+      <Button
         className='submit-btn'
         onClick={handleSubmit}
         disabled={rating === 0}
       >
         Submit
-      </button>
-      {submitted && (
-        <div className='modal-overlay'>
-          <div className='modal'>
-            <h2>Thank You</h2>
-            <p>
-              You rated us {rating} star{rating > 1 ? 's' : ''}
-            </p>
-            <button className='close-btn' onClick={closeModal}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      </Button>
+      {/* <button
+        className='submit-btn'
+        onClick={handleSubmit}
+        disabled={rating === 0}
+      >
+        Submit
+      </button> */}
+      <Modal isOpen={submitted} rating={rating} closeBTN={closeModal} />
     </div>
   );
 };
