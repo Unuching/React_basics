@@ -3,7 +3,9 @@ import Rating from './Components/Rating';
 const App = () => {
   return (
     <div>
-      <Rating />
+      <Rating
+        feedbacks={['Hate it', 'Dislike it', 'Ehh', 'Like it', 'Love it']}
+      />
     </div>
   );
 };
