@@ -17,7 +17,7 @@ const NoteForm = ({ notes, setNotes }) => {
     if (!formData.title || !formData.description) return;
 
     // creating new object
-    const newNote = { id: Date.now(), formData };
+    const newNote = { id: Date.now(), ...formData };
 
     // add new notes to state
     setNotes([newNote, ...notes]);
