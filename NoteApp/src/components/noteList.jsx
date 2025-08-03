@@ -18,9 +18,9 @@
 
 // export default NoteList;
 
-const NoteList = ({ notes}) => {
+const NoteList = ({ notes }) => {
   console.log(notes);
-  
+
   if (notes.length === 0) {
     return <p className='text-center text-gray-500'>No notes yet</p>;
   }
@@ -30,11 +30,20 @@ const NoteList = ({ notes}) => {
         <div
           key={note.id}
           className='p-4 bg-white rounded-lg shadow-md border-l-4'
-          
         >
           <h3 className='text-lg font-bold'>{note.title}</h3>
-          
-          
+          <p className='text-sm text-gray-600'>
+            <strong>Category: </strong>
+            {note.category}
+          </p>
+          <p className='text-sm text-gray-600'>
+            <strong>Priority: </strong>
+            {note.priority}
+          </p>
+          <p className='mt-2'>
+            <strong>Description: </strong>
+            {note.description}
+          </p>
         </div>
       ))}
     </div>
