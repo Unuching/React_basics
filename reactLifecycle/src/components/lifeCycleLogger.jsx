@@ -5,6 +5,10 @@ const LigecycleLogger = () => {
 
   useEffect(() => {
     console.log('Component mounted again...');
+
+    return () => {
+      console.log('Component Unmounted again...');
+    };
   }, []);
 
   useEffect(() => {
