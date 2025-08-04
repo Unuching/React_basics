@@ -1,4 +1,5 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
+import LifecycleLogger from './components/lifecycleLogger';
 
 const App = () => {
   const [showLogger, SetShowLogger] = useState(false);
@@ -12,7 +13,7 @@ const App = () => {
       >
         {showLogger ? 'Unmount Logger' : 'Mount Logger'}
       </button>
-      {showLogger && <div>LifeCycle Logger Here</div>}
+      {showLogger && <LifecycleLogger />}
     </div>
   );
 };
