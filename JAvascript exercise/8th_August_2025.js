@@ -23,3 +23,12 @@ const users = [
   { name: 'Charlie', age: 30 },
   { name: 'David', age: 15 },
 ];
+
+let adultUsers = users.filter((user)=>{
+    return user.age >= 18
+}).map((newUser)=>{
+    return `${newUser.name} is ${newUser.age} years old.`
+})
+
+console.log(adultUsers);
+
