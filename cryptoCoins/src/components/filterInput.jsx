@@ -1,5 +1,14 @@
-const FilterInput = ({filter, onFilterChange}) => {
-    return (  );
-}
- 
+const FilterInput = ({ filter, onFilterChange }) => {
+  return (
+    <div className='filter'>
+      <input
+        type='text'
+        value={filter}
+        placeholder='Filter coins by names or symbol'
+        onChange={(e) => onFilterChange(e.target.value)}
+      />
+    </div>
+  );
+};
+
 export default FilterInput;
