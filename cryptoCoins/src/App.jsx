@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CoinCard from './components/coinCard';
 import LimitSelector from './components/limitSelector';
 import FilterInput from './components/filterInput';
+import SortSelector from './components/sortSelector';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -11,6 +12,7 @@ const App = () => {
   const [error, setError] = useState(null);
   const [limit, setLimit] = useState(10);
   const [filter, setFilter] = useState('');
+  const [sortBy, setSortBy] = useState('market_cap_desc');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +22,7 @@ const App = () => {
         );
         if (!res.ok) throw new Error('Failed to get Data');
         const data = await res.json();
-        console.log(data);
+
         setCoins(data);
       } catch (err) {
         setError(err.message);
@@ -46,12 +48,31 @@ const App = () => {
     //   });
   }, [limit]);
 
-  const filteredCoins = coins.filter((coin) => {
-    return (
-      coin.name.toLowerCase().includes(filter.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(filter.toLowerCase())
-    );
-  });
+  const filteredCoins = coins
+    .filter((coin) => {
+      return (
+        coin.name.toLowerCase().includes(filter.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(filter.toLowerCase())
+      );
+    })
+    .slice()
+    .sort((a, b) => {
+      switch (sortBy) {
+        case 'market_cap_desc':
+          return b.market_cap - a.market_cap;
+        case 'market_cap_asc':
+          return a.market_cap - b.market_cap;
+        case 'price_desc':
+          return b.current_price - a.current_price;
+        case 'price_asc':
+          return a.current_price - b.current_price;
+        case 'change_desc':
+          return b.price_change_percentage_24h - a.price_change_percentage_24h;
+
+        case 'change_asc':
+          return a.price_change_percentage_24h - b.price_change_percentage_24h;
+      }
+    });
 
   return (
     <div>
@@ -61,6 +82,7 @@ const App = () => {
       <div className='top-controls'>
         <FilterInput filter={filter} onFilterChange={setFilter} />
         <LimitSelector limit={limit} onLimitChange={setLimit} />
+        <SortSelector sortBy={sortBy} onSortChange={setSortBy} />
       </div>
 
       {!loading && !error && (
