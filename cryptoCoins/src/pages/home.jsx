@@ -2,6 +2,7 @@ import CoinCard from '../components/coinCard';
 import LimitSelector from '../components/limitSelector';
 import FilterInput from '../components/filterInput';
 import SortSelector from '../components/sortSelector';
+import Spinner from '../components/spinners';
 
 const HomePage = ({
   coins,
@@ -42,7 +43,7 @@ const HomePage = ({
   return (
     <div>
       <h1> 🚀 Hello Crypto</h1>
-      {loading && <p>Loading....</p>}
+      {loading && <Spinner />}
       {error && <div className='error'> {error}</div>}
       <div className='top-controls'>
         <FilterInput filter={filter} onFilterChange={setFilter} />
