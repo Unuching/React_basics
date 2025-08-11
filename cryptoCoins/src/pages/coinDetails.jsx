@@ -33,7 +33,7 @@ const CoinDetailsPage = () => {
     <div className='coin-details-container'>
       <Link to='/'>Back To Home</Link>
       <h1 className='coin-details-title'>
-        {coin ? `${coin.name} (${coin.symbol})` : 'Coin details'}
+        {coin ? `${coin.name} (${coin.symbol.toUpperCase()})` : 'Coin details'}
       </h1>
       {loading && <p>Loading....</p>}
       {error && <div className='error'>{error} </div>}
@@ -85,8 +85,39 @@ const CoinDetailsPage = () => {
               Last Updated: {new Date(coin.last_updated).toLocaleDateString()}{' '}
             </h4>
           </div>
+          <div className='coin-details-links'>
+            {coin.links.homepage[0] && (
+              <p>
+                {' '}
+                <a
+                  href={coin.links.homepage[0]}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Website
+                </a>
+              </p>
+            )}
+            {coin.links.blockchain_site[0] && (
+              <p>
+                {' '}
+                <a
+                  href={coin.links.blockchain_site[0]}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Blockchain Explorer
+                </a>
+              </p>
+            )}
+            {coin.categories.length > 0 && (
+              <p>Categories: {coin.categories.join(', ')}</p>
+            )}
+          </div>
         </>
       )}
+
+      {!loading && !error && !coin && <p>No Data Found!</p>}
     </div>
   );
 };
