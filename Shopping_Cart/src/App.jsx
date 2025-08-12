@@ -23,8 +23,24 @@ const App = () => {
   }, []);
 
   return (
-    <div className='min-h-screen bg-gray-100'>
-      <h1 className='text-3xl font-bold mb-6'>Products Catalog</h1>
+    <div className='min-h-screen bg-gray-100 p-6'>
+      <h1 className='text-3xl font-bold mb-6'> 🛍️ Products Catalog</h1>
+      {loading && <p>Loading...</p>}
+      {error && <div className='error'>{error}</div>}
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className='bg-white rounded-lg shadow p-4 flex flex-col'
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className='h-40 object-cover rounded mb-4'
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
