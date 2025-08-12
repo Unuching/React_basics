@@ -26,6 +26,18 @@ Chartjs.register(
 const API_URL = import.meta.env.VITE_COIN_API_URL;
 
 const CoinChart = ({ coinID }) => {
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPrices = async () => {
+      const res = await fetch(
+        `${API_URL}/${coinID}/market_chart?vs_currency=usd&days=7`
+      );
+    };
+    fetchPrices();
+  }, [coinID]);
+
   return <>Chart</>;
 };
 
