@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router';
 import { useState, useEffect } from 'react';
 import Spinner from '../components/spinners';
+import CoinChart from '../components/coinChart';
 const API_URL = import.meta.env.VITE_COIN_API_URL;
 
 const CoinDetailsPage = () => {
@@ -85,6 +86,9 @@ const CoinDetailsPage = () => {
               Last Updated: {new Date(coin.last_updated).toLocaleDateString()}{' '}
             </h4>
           </div>
+
+          <CoinChart coinID={coin.id} />
+
           <div className='coin-details-links'>
             {coin.links.homepage[0] && (
               <p>
