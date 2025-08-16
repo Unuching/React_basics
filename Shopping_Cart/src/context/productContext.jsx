@@ -30,6 +30,9 @@ export function ProductProvider({ children }) {
   );
 }
 
-export function useProducts() {
+
+ export function useProducts() {
   return useContext(ProductContext);
 }
+
+
