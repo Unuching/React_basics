@@ -31,6 +31,7 @@ export function ProductProvider({ children }) {
 }
 
 
+ // eslint-disable-next-line react-refresh/only-export-components
  export function useProducts() {
   return useContext(ProductContext);
 }
